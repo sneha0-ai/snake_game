@@ -1,14 +1,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <conio.h>
 #include <windows.h>
 
 using namespace std;
-
+//sneha raj
 bool gameover;
 const int width = 20;
-const int height = 17;
+const int flight = 17;
 int x, y, fruitX, fruitY, score;
 int tailX[100], tailY[100]; //snake coordinates
 int nTail;
@@ -32,7 +31,7 @@ void Draw() {
         cout << "#";
     cout << endl;
 
-    for (int i = 0; i < height; i++) {
+    for (int i = 0; i < flight; i++) {
         for (int j = 0; j < width; j++) {
             if (j == 0)
                 cout << "#"; //walls
@@ -114,7 +113,7 @@ void algorithm() {
             break;
     }
     if (x >= width) x = 0; else if (x < 0) x = width - 1;
-    if (y >= height) y = 0; else if (y < 0) y = height - 1;
+    if (y >=flight) y = 0; else if (y < 0) y = flight - 1;
 
     for (int i = 0; i < nTail; i++)
         if (tailX[i] == x && tailY[i] == y)
@@ -123,7 +122,7 @@ void algorithm() {
     if (x == fruitX && y == fruitY) {
         score += 10;
         fruitX = rand() % width;
-        fruitY = rand() % height;
+        fruitY = rand() % flight;
         nTail++;
     }
 }
